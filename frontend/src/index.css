@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #f5f6fb;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.72);
+  --text-primary: #1a1d2e;
+  --text-secondary: #4a5072;
+  --text-muted: #8892b5;
+  --border-subtle: rgba(139, 146, 181, 0.18);
+  --border-card: rgba(139, 146, 181, 0.24);
+  --accent-blue: #5b8af0;
+  --accent-blue-light: rgba(91, 138, 240, 0.1);
+  --accent-purple: #8b7cf8;
+  --accent-green: #34d399;
+  --accent-red: #f87171;
+  --accent-yellow: #fbbf24;
+  --shadow-xs: 0 1px 3px rgba(26, 29, 46, 0.04);
+  --shadow-sm: 0 2px 8px rgba(26, 29, 46, 0.06);
+  --shadow-md: 0 4px 16px rgba(26, 29, 46, 0.08);
+  --shadow-lg: 0 8px 32px rgba(26, 29, 46, 0.12);
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+}
+
+/* ========== Scrollbar ========== */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(139, 146, 181, 0.3); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(139, 146, 181, 0.5); }
+
+/* ========== Top Bar ========== */
+.top-bar {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-xs);
+}
+
+/* ========== Module Cards ========== */
+.module-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+.module-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-card);
+  transform: translateY(-1px);
+}
+.module-card-header {
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, rgba(245, 246, 251, 0.6) 0%, transparent 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.module-card-body {
+  padding: 16px 18px;
+}
+
+/* ========== Badge & Tags ========== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.tag-blue   { background: rgba(91, 138, 240, 0.12); color: #4a6fd4; }
+.tag-green  { background: rgba(52, 211, 153, 0.12); color: #059669; }
+.tag-red    { background: rgba(248, 113, 113, 0.12); color: #dc2626; }
+.tag-yellow { background: rgba(251, 191, 36, 0.12); color: #b45309; }
+.tag-purple { background: rgba(139, 124, 248, 0.12); color: #7c3aed; }
+.tag-orange { background: rgba(251, 146, 60, 0.12); color: #c2410c; }
+.tag-gray   { background: rgba(139, 146, 181, 0.1); color: #6b7280; }
+.tag-outline {
+  background: transparent;
+  border: 1px solid var(--border-card);
+  color: var(--text-secondary);
+}
+
+/* ========== Source Pill ========== */
+.source-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 500;
+  background: var(--bg-base);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ========== Stock Colors ========== */
+.price-up   { color: var(--accent-red); font-weight: 600; }
+.price-down { color: var(--accent-green); font-weight: 600; }
+.price-flat { color: var(--text-muted); font-weight: 500; }
+
+/* ========== Buttons ========== */
+.btn-primary {
+  background: var(--accent-blue);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(91, 138, 240, 0.3);
+}
+.btn-primary:hover { background: #4a7ae0; box-shadow: 0 4px 12px rgba(91, 138, 240, 0.4); }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-ghost:hover { background: var(--bg-base); border-color: var(--accent-blue); color: var(--accent-blue); }
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-icon:hover {
+  background: var(--accent-blue-light);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+/* ========== AI News Module ========== */
+.news-card {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  background: var(--bg-card);
+}
+.news-card:hover {
+  border-color: rgba(91, 138, 240, 0.3);
+  box-shadow: 0 2px 12px rgba(91, 138, 240, 0.08);
+  transform: translateX(2px);
+}
+
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, rgba(245, 246, 251, 0.9) 0%, rgba(235, 238, 252, 0.6) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+.day-header:hover { background: rgba(91, 138, 240, 0.06); }
+
+/* View Mode Tabs */
+.view-tab {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--border-card);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.view-tab:hover { background: var(--bg-base); }
+.view-tab.active {
+  background: var(--accent-blue);
+  color: #fff;
+  border-color: var(--accent-blue);
+  box-shadow: 0 2px 8px rgba(91, 138, 240, 0.25);
+}
+
+/* ========== Divider ========== */
+.divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0;
+}
+
+/* ========== Animate ========== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.3s ease forwards; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f0f1f5 25%, #e8e9f0 50%, #f0f1f5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+/* ========== react-grid-layout override ========== */
+.react-grid-item { transition: all 0.2s ease !important; }
+.react-grid-item.react-grid-placeholder {
+  background: var(--accent-blue-light) !important;
+  border: 2px dashed var(--accent-blue) !important;
+  border-radius: var(--radius-lg) !important;
+  opacity: 0.5 !important;
+}
+
+/* ========== react-resizable override ========== */
+.react-resizable-handle {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.module-card:hover .react-resizable-handle { opacity: 1; }
+.react-resizable-handle::after {
+  border-color: var(--accent-blue) !important;
+}
+
+/* ========== Countdown Badge ========== */
+.countdown-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--bg-base);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+/* ========== Stats Number ========== */
+.stat-num {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-feature-settings: 'tnum';
+}
